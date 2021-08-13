@@ -3,6 +3,7 @@ const player2 = 'x'
 
 var playTime = 'player1'
 var gameOver = false
+var verificador = 18
 
 atualizaMostrador()
 
@@ -24,6 +25,7 @@ function atualizaMostrador() {
 
 function inicializarEspacos() {
   var espacos = document.getElementsByClassName('espaco')
+  
   for (var i = 0; i < espacos.length; i++) {
     espacos[i].addEventListener('click', function () {
       if (gameOver) {
@@ -43,6 +45,12 @@ function inicializarEspacos() {
         atualizaMostrador()
 
         verificarVencedor()
+
+        
+        if(i == verificador){          
+          alert("deu velha")
+          location.reload()
+        }
       }
     })
   }
@@ -77,9 +85,21 @@ function inicializarEspacos() {
     } else if (((c3 == c2 && c3 == c1) || (c3 == b3 && c3 == a3)) && c3 != '') {
       vencedor = c3
     }
+
     if (vencedor != '') {
+        
       gameOver = true
+      
       alert("o vencedor é: '" + vencedor + "'")
+
+      location.reload()
     }
+
+      else{
+        verificador --
+        
+      }
+    
   }
 }
+
