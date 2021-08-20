@@ -3,6 +3,12 @@
   margin-top: 40px;
   width: 252px;
 }
+
+button{
+  text-align: center;
+  margin-left: 48%;
+  margin-top: 5rem;
+}
 p {
   float: left;
   margin-right: 10px;

@@ -4,10 +4,14 @@ const player2 = 'x'
 var playTime = 'player1'
 var gameOver = false
 var verificador = 18
+var resetButton
+
 
 atualizaMostrador()
 
 inicializarEspacos()
+
+
 
 function atualizaMostrador() {
   if (gameOver) {
@@ -28,10 +32,7 @@ function inicializarEspacos() {
   
   for (var i = 0; i < espacos.length; i++) {
     espacos[i].addEventListener('click', function () {
-      if (gameOver) {
-        return
-      }
-
+      
       if (this.getElementsByTagName('img').length == 0) {
         if (playTime == 'player1') {
           this.innerHTML = "<img src='./images/circulo_sem_fundo.png'>"
@@ -42,17 +43,25 @@ function inicializarEspacos() {
           this.setAttribute('jogada', player2)
           playTime = 'player1'
         }
+
+        
+        
         atualizaMostrador()
 
-        verificarVencedor()
-
+        verificarVencedor()  
+        
+        
+        
         
         if(i == verificador){          
           alert("deu velha")
-          location.reload()
+          
         }
+        
       }
+      
     })
+    
   }
 
   function verificarVencedor() {
@@ -87,19 +96,24 @@ function inicializarEspacos() {
     }
 
     if (vencedor != '') {
-        
+
+      alert("o vencedor é: '" + vencedor + "'") 
+       
       gameOver = true
+            
+  
       
-      alert("o vencedor é: '" + vencedor + "'")
-
-      location.reload()
     }
-
+  
       else{
         verificador --
         
       }
+
+    
+    
+  
+    }
+    
     
   }
-}
-
